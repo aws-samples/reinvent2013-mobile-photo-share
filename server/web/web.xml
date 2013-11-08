@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <display-name>Token Vending Machine</display-name>
+    
+    <welcome-file-list>
+        <welcome-file>home.jsp</welcome-file>
+    </welcome-file-list>       
+    
+	
+    <!-- ========================================================================================================== -->
+    <!-- Servlets for Geo Location APIs -->
+    <!-- ========================================================================================================== --> 
+    <servlet>
+        <description></description>
+        <display-name>GeoDynamoDBServlet</display-name>
+        <servlet-name>GeoDynamoDBServlet</servlet-name>
+        <servlet-class>com.amazonaws.geo.server.GeoDynamoDBServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GeoDynamoDBServlet</servlet-name>
+        <url-pattern>/dynamodb-geo</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- ========================================================================================================== -->
+    <!-- Servlet for Identity GetToken -->
+    <!-- ========================================================================================================== -->	
+	<servlet>
+		<display-name>GetIdentityTokenServlet</display-name>
+		<servlet-name>GetIdentityTokenServlet</servlet-name>
+		<servlet-class>com.amazonaws.tvm.identity.servlet.GetTokenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetIdentityTokenServlet</servlet-name>
+		<url-pattern>/getidentitytoken/*</url-pattern>
+	</servlet-mapping>
+	
+    
+	<!-- ========================================================================================================== -->
+    <!-- Servlet for UserRegisterServlet -->
+    <!-- ========================================================================================================== -->		
+	<servlet>
+		<servlet-name>RegisterUserServlet</servlet-name>
+		<servlet-class>com.amazonaws.tvm.identity.servlet.RegisterUserServlet</servlet-class>
+		<init-param>
+            <param-name>success</param-name>
+            <param-value>/register-success.jsp</param-value>
+        </init-param>
+		<init-param>
+            <param-name>error</param-name>
+            <param-value>/register-failure.jsp</param-value>
+        </init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisterUserServlet</servlet-name>
+		<url-pattern>/registeruser/*</url-pattern>
+	</servlet-mapping>
+    
+    
+    <!-- ========================================================================================================== -->
+    <!-- Servlet for LoginServlet -->
+    <!-- ========================================================================================================== -->	
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.amazonaws.tvm.identity.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login/*</url-pattern>
+    </servlet-mapping>
+    
+
+    <!-- ========================================================================================================== -->
+    <!-- Servlet for Device Registration -->
+    <!-- ========================================================================================================== --> 
+    <servlet>
+        <servlet-name>RegisterDeviceServlet</servlet-name>
+        <servlet-class>com.amazonaws.tvm.anonymous.servlet.RegisterDeviceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterDeviceServlet</servlet-name>
+        <url-pattern>/registerdevice/*</url-pattern>
+    </servlet-mapping>
+    
+    
+    <!-- ========================================================================================================== -->
+    <!-- Servlet for Anonymous GetToken -->
+    <!-- ========================================================================================================== --> 
+    <servlet>
+        <display-name>GetAnonymousTokenServlet</display-name>
+        <servlet-name>GetAnonymousTokenServlet</servlet-name>
+        <servlet-class>com.amazonaws.tvm.anonymous.servlet.GetTokenServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetAnonymousTokenServlet</servlet-name>
+        <url-pattern>/getanonymoustoken/*</url-pattern>
+    </servlet-mapping>
+
+             
+</web-app>

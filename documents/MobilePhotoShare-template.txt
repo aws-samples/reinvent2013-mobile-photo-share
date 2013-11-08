@@ -1,0 +1,275 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Parameters" : {
+    "FacebookAppId" : {
+      "Type" : "String",
+      "Description" : "Facebook App ID",
+      "AllowedPattern" : "\\d+", 
+      "ConstraintDescription" : "Input a valid Facebook App ID"
+    },
+    "Region" : {
+      "Type" : "String",
+      "Description" : "Region in which to host the AWS DynamoDB table to store the geo-tagged data",
+      "Default" : "us-west-2",
+      "AllowedPattern" : "\\w{2}-\\w+-\\d",
+      "ConstraintDescription" : "Input a valid AWS region"
+    },
+    "GeoTagTableName" : {
+      "Type" : "String",
+      "Description" : "The name of the AWS DynamoDB table to store the geo-tagged data",
+      "Default" : "PhotoLocations"
+    },
+    "FavoritesTableARN" : {
+      "Type" : "String",
+      "Description" : "ARN for DynamoDB Table used for Favorites",
+      "ConstraintDescription" : "Input a valid DynamoDB ARN i.e. arn:aws:dynamodb:us-west-2:123456789012:table/MyMobilePhotoShare",
+      "AllowedPattern" : "arn:aws:dynamodb:\\w{2}-\\w+-\\d:\\d+:table/\\w+"
+    }
+  },
+  "Resources" : {
+    "PhotoS3Bucket" : {
+      "Type" : "AWS::S3::Bucket",
+      "Properties" : {
+      }
+    },
+    "FacebookWIFRole" : {
+      "Type" : "AWS::IAM::Role",
+      "Properties" : {
+        "AssumeRolePolicyDocument" : {
+          "Version" : "2012-10-17",
+          "Statement" : [ {
+            "Sid" : "",
+            "Effect" : "Allow",
+            "Principal" : {
+              "Federated" : "graph.facebook.com"
+            },
+            "Action" : "sts:AssumeRoleWithWebIdentity",
+            "Condition" : {
+              "StringEquals" : {
+                "graph.facebook.com:app_id" : {
+                  "Ref" : "FacebookAppId"
+                }
+              }
+            }
+          } ]
+        },
+        "Path" : "/"
+      }
+    },
+    "FacebookUserPolicy" : {
+      "Type" : "AWS::IAM::Policy",
+      "Properties" : {
+        "PolicyDocument" : {
+          "Version" : "2012-10-17",
+          "Statement" : [ {
+            "Effect" : "Allow",
+            "Action" : [ "s3:PutObject", "s3:GetObject", "s3:DeleteObject", "s3:AbortMultipartUpload", "s3:ListMultipartUploadParts" ],
+            "Resource" : [ {
+              "Fn::Join" : [ "", [ "arn:aws:s3:::", {
+                "Ref" : "PhotoS3Bucket"
+              }, "/${graph.facebook.com:id}/*" ] ]
+            } ]
+          }, {
+            "Effect" : "Allow",
+            "Action" : [ "s3:GetObject" ],
+            "Resource" : [ {
+              "Fn::Join" : [ "", [ "arn:aws:s3:::", {
+                "Ref" : "PhotoS3Bucket"
+              }, "/public/*" ] ]
+            } ]
+          }, {
+            "Effect" : "Allow",
+            "Action" : [ "s3:PutObject", "s3:DeleteObject", "s3:AbortMultipartUpload", "s3:ListMultipartUploadParts" ],
+            "Resource" : [ {
+              "Fn::Join" : [ "", [ "arn:aws:s3:::", {
+                "Ref" : "PhotoS3Bucket"
+              }, "/public/${graph.facebook.com:id}/*" ] ]
+            } ]
+          }, {
+            "Effect" : "Allow",
+            "Action" : [ "s3:ListBucket" ],
+            "Resource" : [ {
+              "Fn::Join" : [ "", [ "arn:aws:s3:::", {
+                "Ref" : "PhotoS3Bucket"
+              } ] ]
+            } ],
+            "Condition" : {
+              "StringLike" : {
+                "s3:prefix" : "${graph.facebook.com:id}/"
+              }
+            }
+          }, {
+            "Effect" : "Allow",
+            "Action" : [ "s3:ListBucket" ],
+            "Resource" : [ {
+              "Fn::Join" : [ "", [ "arn:aws:s3:::", {
+                "Ref" : "PhotoS3Bucket"
+              } ] ]
+            } ],
+            "Condition" : {
+              "StringLike" : {
+                "s3:prefix" : "public/"
+              }
+            }
+          }, {
+            "Effect" : "Allow",
+            "Action" : [ "s3:ListBucketMultipartUploads" ],
+            "Resource" : [ {
+              "Fn::Join" : [ "", [ "arn:aws:s3:::", {
+                "Ref" : "PhotoS3Bucket"
+              } ] ]
+            } ]
+          }, {
+            "Effect" : "Allow",
+            "Action" : [ "dynamodb:GetItem", "dynamodb:PutItem" ],
+            "Resource" : {
+              "Ref" : "FavoritesTableARN"
+            },
+            "Condition" : {
+              "ForAllValues:StringEquals" : {
+                "dynamodb:LeadingKeys" : [ "${graph.facebook.com:id}" ]
+              }
+            }
+          } ]
+        },
+        "PolicyName" : "FacebookUserPolicy",
+        "Roles" : [ {
+          "Ref" : "FacebookWIFRole"
+        } ]
+      }
+    },
+    "GeoTVMUser" : {
+      "Type" : "AWS::IAM::User",
+      "Properties" : {
+        "Path" : "/",
+        "Policies" : [ {
+          "PolicyName" : "GeoTVMPolicy",
+          "PolicyDocument" : {
+            "Statement" : [ {
+              "Effect" : "Allow",
+              "Action" : "sts:GetFederationToken",
+              "Resource" : "*"
+            }, {
+              "Effect" : "Allow",
+              "Action" : "iam:GetUser",
+              "Resource" : "*"
+            }, {
+              "Effect" : "Allow",
+              "Action" : "dynamodb:*",
+              "Resource" : "*"
+            }, {
+              "Effect" : "Allow",
+              "Action" : "s3:*",
+              "Resource" : "*"
+            }, {
+              "Action" : "sns:*",
+              "Effect" : "Allow",
+              "Resource" : "*"
+            } ]
+          }
+        } ]
+      }
+    },
+    "GeoTVMAccessKey" : {
+      "Type" : "AWS::IAM::AccessKey",
+      "Properties" : {
+        "UserName" : {
+          "Ref" : "GeoTVMUser"
+        }
+      }
+    },
+    "GeoTVMApplication" : {
+      "Type" : "AWS::ElasticBeanstalk::Application",
+      "Properties" : {
+        "Description" : "Geo TVM",
+        "ApplicationVersions" : [ {
+          "VersionLabel" : "Version 1.0",
+          "Description" : "https://github.com/awslabs/TODO",
+          "SourceBundle" : {
+            "S3Bucket" : "tvm-identity",
+            "S3Key" : "latest/GeoTVM.war"
+          }
+        } ],
+        "ConfigurationTemplates" : [ {
+          "TemplateName" : "DefaultConfiguration",
+          "Description" : "64bit Amazon Linux running Tomcat 7",
+          "SolutionStackName" : "64bit Amazon Linux running Tomcat 7",
+          "OptionSettings" : [ {
+            "Namespace" : "aws:elasticbeanstalk:environment",
+            "OptionName" : "EnvironmentType",
+            "Value" : "SingleInstance"
+          }, {
+            "Namespace" : "aws:autoscaling:launchconfiguration",
+            "OptionName" : "InstanceType",
+            "Value" : "t1.micro"
+          }, {
+            "Namespace" : "aws:autoscaling:asg",
+            "OptionName" : "MaxSize",
+            "Value" : "1"
+          }, {
+            "Namespace" : " aws:elasticbeanstalk:application:environment",
+            "OptionName" : "AWS_ACCESS_KEY_ID",
+            "Value" : {
+              "Ref" : "GeoTVMAccessKey"
+            }
+          }, {
+            "Namespace" : " aws:elasticbeanstalk:application:environment",
+            "OptionName" : "AWS_SECRET_KEY",
+            "Value" : {
+              "Fn::GetAtt" : [ "GeoTVMAccessKey", "SecretAccessKey" ]
+            }
+          }, {
+            "Namespace" : " aws:elasticbeanstalk:application:environment",
+            "OptionName" : "PARAM1",
+            "Value" : "MyMobileAppName"
+          }, {
+            "Namespace" : " aws:elasticbeanstalk:application:environment",
+            "OptionName" : "PARAM2",
+            "Value" : {
+              "Ref" : "Region"
+            }
+          }, {
+            "Namespace" : " aws:elasticbeanstalk:application:environment",
+            "OptionName" : "PARAM3",
+            "Value" : {
+              "Ref" : "GeoTagTableName"
+            }
+          } ]
+        } ]
+      }
+    },
+    "GeoTVMEnvironment" : {
+      "Type" : "AWS::ElasticBeanstalk::Environment",
+      "Properties" : {
+        "ApplicationName" : {
+          "Ref" : "GeoTVMApplication"
+        },
+        "Description" : "AWS Geo TVM",
+        "TemplateName" : "DefaultConfiguration",
+        "VersionLabel" : "Version 1.0"
+      }
+    }
+  },
+  "Outputs" : {
+    "GeoTVMURL" : {
+      "Value" : {
+        "Fn::Join" : [ "", [ "http://", {
+          "Fn::GetAtt" : [ "GeoTVMEnvironment", "EndpointURL" ]
+        } ] ]
+      },
+      "Description" : "URL for the Geo Token Vending Machine"
+    },
+    "FacebookWIFRoleARN" : {
+      "Value" : {
+        "Fn::GetAtt" : [ "FacebookWIFRole", "Arn" ]
+      },
+      "Description" : "ARN for Facebook WIF Role"
+    },
+    "S3BucketName" : {
+      "Value" : {
+        "Ref" : "PhotoS3Bucket"
+      },
+      "Description" : "Photo S3 Bucket Name"
+    }
+  }
+}

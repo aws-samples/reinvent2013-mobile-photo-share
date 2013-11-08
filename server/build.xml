@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<project name="IdentityTVM" basedir="." default="war" >
+
+
+    <!-- =========================================================================================== -->
+    <!-- Properties -->
+    <!-- =========================================================================================== -->
+    <property name="classes.dir"        value="${basedir}/classes"/>
+    <property name="third-party.dir"    value="${basedir}/third-party"/>
+    <property name="lib.dir"            value="${basedir}/lib"/>
+    <property name="web.dir"            value="${basedir}/web"/>
+    <property name="src.dir"            value="${basedir}/src"/>
+    <property name="war.file"           value="geotvm.war"/>
+
+
+    <!-- =========================================================================================== -->
+    <!-- Build Targets -->
+    <!-- =========================================================================================== -->
+    <path id="classpath.refid">
+        <pathelement path="${classes.dir}"/>
+        <fileset dir="${third-party.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="build">
+        <delete dir="${classes.dir}"/>
+        <mkdir dir="${classes.dir}"/>
+        <javac target="1.6" source="1.6" srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath.refid" includeAntRuntime="no" debug="true"/>
+    </target>
+
+    <target name="war" depends="build">
+        <delete file="${war.file}"/>
+
+        <mkdir dir="tmp/lib"/>
+
+        <copy toDir="tmp/lib" flatten="yes">
+            <fileset dir="${third-party.dir}">
+                <include name="**/*.jar"/>
+                <exclude name="**/servlet-api-2.3.jar"/>
+            </fileset>
+            <fileset dir="${lib.dir}">
+                <include name="**/*.jar"/>
+            </fileset>
+       </copy>
+
+        <copy toDir="${classes.dir}" file="${src.dir}/IdentityTokenVendingMachinePolicy.json"/>
+        <copy toDir="${classes.dir}" file="${src.dir}/AnonymousTokenVendingMachinePolicy.json"/>
+
+        <war destfile="${war.file}" webxml="${basedir}/web/web.xml">
+            <fileset dir="${basedir}/web/jsp"/>
+            <lib dir="tmp/lib"/>
+            <classes dir="${classes.dir}"/>
+        </war>
+
+        <delete dir="tmp"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${classes.dir}"/>
+        <delete file="${war.file}"/>
+    </target>
+
+</project>

@@ -1,0 +1,651 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3834C0A118047CD200A0045C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3834C0A018047CD200A0045C /* SystemConfiguration.framework */; };
+		3865ECE1180CC918001F81E3 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865ECE0180CC918001F81E3 /* CoreMotion.framework */; };
+		3865ECE3180CCC00001F81E3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865ECE2180CCC00001F81E3 /* MediaPlayer.framework */; };
+		3865ECE5180CCC0C001F81E3 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865ECE4180CCC0C001F81E3 /* AssetsLibrary.framework */; };
+		3865ECE7180CCC1D001F81E3 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865ECE6180CCC1D001F81E3 /* CoreText.framework */; };
+		38B7D8B917F3922B009C0AEF /* PictureShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B7D8B817F3922B009C0AEF /* PictureShowViewController.m */; };
+		38E8037717EA55D1007043A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E8037617EA55D1007043A5 /* Foundation.framework */; };
+		38E8037917EA55D1007043A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E8037817EA55D1007043A5 /* CoreGraphics.framework */; };
+		38E8037B17EA55D1007043A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E8037A17EA55D1007043A5 /* UIKit.framework */; };
+		38E8038117EA55D1007043A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 38E8037F17EA55D1007043A5 /* InfoPlist.strings */; };
+		38E8038317EA55D1007043A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E8038217EA55D1007043A5 /* main.m */; };
+		38E8038717EA55D1007043A5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E8038617EA55D1007043A5 /* AppDelegate.m */; };
+		38E8038A17EA55D1007043A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E8038817EA55D1007043A5 /* Main.storyboard */; };
+		38E8038D17EA55D1007043A5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E8038C17EA55D1007043A5 /* ViewController.m */; };
+		38E8038F17EA55D1007043A5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E8038E17EA55D1007043A5 /* Images.xcassets */; };
+		38E8039617EA55D1007043A5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E8039517EA55D1007043A5 /* XCTest.framework */; };
+		38E8039717EA55D1007043A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E8037617EA55D1007043A5 /* Foundation.framework */; };
+		38E8039817EA55D1007043A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E8037A17EA55D1007043A5 /* UIKit.framework */; };
+		38E803A017EA55D1007043A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 38E8039E17EA55D1007043A5 /* InfoPlist.strings */; };
+		38E803A217EA55D1007043A5 /* MobilePhotoShareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E803A117EA55D1007043A5 /* MobilePhotoShareTests.m */; };
+		38E803B217EA5887007043A5 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E803AC17EA5887007043A5 /* AmazonClientManager.m */; };
+		38E803B317EA5887007043A5 /* AmazonKeyChainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E803AE17EA5887007043A5 /* AmazonKeyChainWrapper.m */; };
+		38E803D017EBA4F5007043A5 /* AddPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E803CF17EBA4F5007043A5 /* AddPictureViewController.m */; };
+		38E803D317EBB11E007043A5 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E803D217EBB11E007043A5 /* Constants.m */; };
+		38E803DC17ECB2F6007043A5 /* PictureListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E803DB17ECB2F6007043A5 /* PictureListViewController.m */; };
+		D032729E17FB5BCA00484963 /* PictureMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D032729D17FB5BCA00484963 /* PictureMapViewController.m */; };
+		D03272A417FB7A7600484963 /* PicturePointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D03272A317FB7A7600484963 /* PicturePointAnnotation.m */; };
+		D058C85C18086E3E00C96527 /* GeoClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D058C85B18086E3E00C96527 /* GeoClient.m */; };
+		D058C86218088A4400C96527 /* Favorites.m in Sources */ = {isa = PBXBuildFile; fileRef = D058C86018088A4400C96527 /* Favorites.m */; };
+		D0B3761C1829CD4D00EF2779 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B3761B1829CD4D00EF2779 /* AdSupport.framework */; };
+		D0B3761E1829CD8200EF2779 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B3761D1829CD8200EF2779 /* Social.framework */; };
+		D0B3763B1829D39F00EF2779 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B376391829D30000EF2779 /* FacebookSDK.framework */; };
+		D0B3763D1829D3CB00EF2779 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B3762E1829D2F200EF2779 /* AWSDynamoDB.framework */; };
+		D0B3763E1829D3CB00EF2779 /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B3762F1829D2F200EF2779 /* AWSRuntime.framework */; };
+		D0B3763F1829D3CB00EF2779 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B376301829D2F200EF2779 /* AWSS3.framework */; };
+		D0B376401829D3CB00EF2779 /* AWSSecurityTokenService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B376311829D2F200EF2779 /* AWSSecurityTokenService.framework */; };
+		D0B376411829D3CB00EF2779 /* AWSSNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B376321829D2F200EF2779 /* AWSSNS.framework */; };
+		D0DADF7C18015A0500EA1A37 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E803BC17EA6108007043A5 /* libsqlite3.0.dylib */; };
+		D0E79AFE182D520D0093CDA8 /* libTVMClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E79AFD182D520D0093CDA8 /* libTVMClient.a */; };
+		D0E7E4B2180A860900749268 /* Pictures.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E7E4B1180A860900749268 /* Pictures.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		38E8039917EA55D1007043A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 38E8036B17EA55D1007043A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38E8037217EA55D1007043A5;
+			remoteInfo = MobilePhotoShare;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3834C0A018047CD200A0045C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3865ECC9180C7B28001F81E3 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
+		3865ECD1180C9425001F81E3 /* login-with-amazon-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "login-with-amazon-sdk.a"; path = "../../LoginWithAmazonSDKForiOS/Build-universal/login-with-amazon-sdk.a"; sourceTree = "<group>"; };
+		3865ECE0180CC918001F81E3 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		3865ECE2180CCC00001F81E3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		3865ECE4180CCC0C001F81E3 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		3865ECE6180CCC1D001F81E3 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		38B7D8B717F3922B009C0AEF /* PictureShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureShowViewController.h; sourceTree = "<group>"; };
+		38B7D8B817F3922B009C0AEF /* PictureShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureShowViewController.m; sourceTree = "<group>"; };
+		38E8037317EA55D1007043A5 /* MobilePhotoShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobilePhotoShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38E8037617EA55D1007043A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		38E8037817EA55D1007043A5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		38E8037A17EA55D1007043A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		38E8037E17EA55D1007043A5 /* MobilePhotoShare-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MobilePhotoShare-Info.plist"; sourceTree = "<group>"; };
+		38E8038017EA55D1007043A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		38E8038217EA55D1007043A5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		38E8038417EA55D1007043A5 /* MobilePhotoShare-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MobilePhotoShare-Prefix.pch"; sourceTree = "<group>"; };
+		38E8038517EA55D1007043A5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		38E8038617EA55D1007043A5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		38E8038B17EA55D1007043A5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		38E8038C17EA55D1007043A5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		38E8038E17EA55D1007043A5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		38E8039417EA55D1007043A5 /* MobilePhotoShareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobilePhotoShareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		38E8039517EA55D1007043A5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		38E8039D17EA55D1007043A5 /* MobilePhotoShareTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MobilePhotoShareTests-Info.plist"; sourceTree = "<group>"; };
+		38E8039F17EA55D1007043A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		38E803A117EA55D1007043A5 /* MobilePhotoShareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobilePhotoShareTests.m; sourceTree = "<group>"; };
+		38E803AB17EA5887007043A5 /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
+		38E803AC17EA5887007043A5 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
+		38E803AD17EA5887007043A5 /* AmazonKeyChainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonKeyChainWrapper.h; sourceTree = "<group>"; };
+		38E803AE17EA5887007043A5 /* AmazonKeyChainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonKeyChainWrapper.m; sourceTree = "<group>"; };
+		38E803BC17EA6108007043A5 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		38E803C017EA6152007043A5 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		38E803C417EA8728007043A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		38E803CE17EBA4F5007043A5 /* AddPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPictureViewController.h; sourceTree = "<group>"; };
+		38E803CF17EBA4F5007043A5 /* AddPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPictureViewController.m; sourceTree = "<group>"; };
+		38E803D117EBB11E007043A5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		38E803D217EBB11E007043A5 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		38E803DA17ECB2F6007043A5 /* PictureListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureListViewController.h; sourceTree = "<group>"; };
+		38E803DB17ECB2F6007043A5 /* PictureListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureListViewController.m; sourceTree = "<group>"; };
+		D032729C17FB5BCA00484963 /* PictureMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureMapViewController.h; sourceTree = "<group>"; };
+		D032729D17FB5BCA00484963 /* PictureMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureMapViewController.m; sourceTree = "<group>"; };
+		D03272A217FB7A7600484963 /* PicturePointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturePointAnnotation.h; sourceTree = "<group>"; };
+		D03272A317FB7A7600484963 /* PicturePointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturePointAnnotation.m; sourceTree = "<group>"; };
+		D058C85A18086E3E00C96527 /* GeoClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoClient.h; sourceTree = "<group>"; };
+		D058C85B18086E3E00C96527 /* GeoClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoClient.m; sourceTree = "<group>"; };
+		D058C86018088A4400C96527 /* Favorites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorites.m; sourceTree = "<group>"; };
+		D058C86118088A4400C96527 /* Favorites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorites.h; sourceTree = "<group>"; };
+		D0B3761B1829CD4D00EF2779 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		D0B3761D1829CD8200EF2779 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		D0B3762E1829D2F200EF2779 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = "../../aws-ios-sdk-1.8.0/AWSDynamoDB.framework"; sourceTree = "<group>"; };
+		D0B3762F1829D2F200EF2779 /* AWSRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSRuntime.framework; path = "../../aws-ios-sdk-1.8.0/AWSRuntime.framework"; sourceTree = "<group>"; };
+		D0B376301829D2F200EF2779 /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSS3.framework; path = "../../aws-ios-sdk-1.8.0/AWSS3.framework"; sourceTree = "<group>"; };
+		D0B376311829D2F200EF2779 /* AWSSecurityTokenService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSecurityTokenService.framework; path = "../../aws-ios-sdk-1.8.0/AWSSecurityTokenService.framework"; sourceTree = "<group>"; };
+		D0B376321829D2F200EF2779 /* AWSSNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSNS.framework; path = "../../aws-ios-sdk-1.8.0/AWSSNS.framework"; sourceTree = "<group>"; };
+		D0B376391829D30000EF2779 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "../../aws-ios-sdk-1.8.0/ThirdParty/FacebookSDK.framework"; sourceTree = "<group>"; };
+		D0E79AFD182D520D0093CDA8 /* libTVMClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTVMClient.a; path = "../TVMClient/build/Debug-iphoneos/libTVMClient.a"; sourceTree = "<group>"; };
+		D0E7E4B0180A860900749268 /* Pictures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pictures.h; sourceTree = "<group>"; };
+		D0E7E4B1180A860900749268 /* Pictures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pictures.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		38E8037017EA55D1007043A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0E79AFE182D520D0093CDA8 /* libTVMClient.a in Frameworks */,
+				D0B3763D1829D3CB00EF2779 /* AWSDynamoDB.framework in Frameworks */,
+				D0B3763E1829D3CB00EF2779 /* AWSRuntime.framework in Frameworks */,
+				D0B3763F1829D3CB00EF2779 /* AWSS3.framework in Frameworks */,
+				D0B376401829D3CB00EF2779 /* AWSSecurityTokenService.framework in Frameworks */,
+				D0B376411829D3CB00EF2779 /* AWSSNS.framework in Frameworks */,
+				D0B3763B1829D39F00EF2779 /* FacebookSDK.framework in Frameworks */,
+				D0B3761E1829CD8200EF2779 /* Social.framework in Frameworks */,
+				D0B3761C1829CD4D00EF2779 /* AdSupport.framework in Frameworks */,
+				3865ECE7180CCC1D001F81E3 /* CoreText.framework in Frameworks */,
+				3865ECE5180CCC0C001F81E3 /* AssetsLibrary.framework in Frameworks */,
+				3865ECE3180CCC00001F81E3 /* MediaPlayer.framework in Frameworks */,
+				3865ECE1180CC918001F81E3 /* CoreMotion.framework in Frameworks */,
+				3834C0A118047CD200A0045C /* SystemConfiguration.framework in Frameworks */,
+				D0DADF7C18015A0500EA1A37 /* libsqlite3.0.dylib in Frameworks */,
+				38E8037917EA55D1007043A5 /* CoreGraphics.framework in Frameworks */,
+				38E8037B17EA55D1007043A5 /* UIKit.framework in Frameworks */,
+				38E8037717EA55D1007043A5 /* Foundation.framework in Frameworks */,
+				38E8037917EA55D1007043A5 /* CoreGraphics.framework in Frameworks */,
+				38E8037B17EA55D1007043A5 /* UIKit.framework in Frameworks */,
+				38E8037717EA55D1007043A5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38E8039117EA55D1007043A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38E8039617EA55D1007043A5 /* XCTest.framework in Frameworks */,
+				38E8039817EA55D1007043A5 /* UIKit.framework in Frameworks */,
+				38E8039717EA55D1007043A5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		38E8036A17EA55D1007043A5 = {
+			isa = PBXGroup;
+			children = (
+				38E8037C17EA55D1007043A5 /* MobilePhotoShare */,
+				38E8039B17EA55D1007043A5 /* MobilePhotoShareTests */,
+				38E8037517EA55D1007043A5 /* Frameworks */,
+				38E8037417EA55D1007043A5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		38E8037417EA55D1007043A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38E8037317EA55D1007043A5 /* MobilePhotoShare.app */,
+				38E8039417EA55D1007043A5 /* MobilePhotoShareTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		38E8037517EA55D1007043A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0E79AFD182D520D0093CDA8 /* libTVMClient.a */,
+				D0B376391829D30000EF2779 /* FacebookSDK.framework */,
+				D0B3762E1829D2F200EF2779 /* AWSDynamoDB.framework */,
+				D0B3762F1829D2F200EF2779 /* AWSRuntime.framework */,
+				D0B376301829D2F200EF2779 /* AWSS3.framework */,
+				D0B376311829D2F200EF2779 /* AWSSecurityTokenService.framework */,
+				D0B376321829D2F200EF2779 /* AWSSNS.framework */,
+				D0B3761D1829CD8200EF2779 /* Social.framework */,
+				D0B3761B1829CD4D00EF2779 /* AdSupport.framework */,
+				3865ECE6180CCC1D001F81E3 /* CoreText.framework */,
+				3865ECE4180CCC0C001F81E3 /* AssetsLibrary.framework */,
+				3865ECE2180CCC00001F81E3 /* MediaPlayer.framework */,
+				3865ECE0180CC918001F81E3 /* CoreMotion.framework */,
+				3865ECD1180C9425001F81E3 /* login-with-amazon-sdk.a */,
+				3865ECC9180C7B28001F81E3 /* LICENSE */,
+				3834C0A018047CD200A0045C /* SystemConfiguration.framework */,
+				38E803C017EA6152007043A5 /* Accounts.framework */,
+				38E803BC17EA6108007043A5 /* libsqlite3.0.dylib */,
+				38E8037617EA55D1007043A5 /* Foundation.framework */,
+				38E8037817EA55D1007043A5 /* CoreGraphics.framework */,
+				38E8037A17EA55D1007043A5 /* UIKit.framework */,
+				38E8039517EA55D1007043A5 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		38E8037C17EA55D1007043A5 /* MobilePhotoShare */ = {
+			isa = PBXGroup;
+			children = (
+				D058C86018088A4400C96527 /* Favorites.m */,
+				D058C86118088A4400C96527 /* Favorites.h */,
+				38E803D117EBB11E007043A5 /* Constants.h */,
+				38E803D217EBB11E007043A5 /* Constants.m */,
+				38E803AB17EA5887007043A5 /* AmazonClientManager.h */,
+				38E803AC17EA5887007043A5 /* AmazonClientManager.m */,
+				38E803AD17EA5887007043A5 /* AmazonKeyChainWrapper.h */,
+				38E803AE17EA5887007043A5 /* AmazonKeyChainWrapper.m */,
+				38E8038517EA55D1007043A5 /* AppDelegate.h */,
+				38E8038617EA55D1007043A5 /* AppDelegate.m */,
+				38E8038817EA55D1007043A5 /* Main.storyboard */,
+				38E8038B17EA55D1007043A5 /* ViewController.h */,
+				38E8038C17EA55D1007043A5 /* ViewController.m */,
+				38E8038E17EA55D1007043A5 /* Images.xcassets */,
+				38E803CE17EBA4F5007043A5 /* AddPictureViewController.h */,
+				38E803CF17EBA4F5007043A5 /* AddPictureViewController.m */,
+				38E803DA17ECB2F6007043A5 /* PictureListViewController.h */,
+				38E803DB17ECB2F6007043A5 /* PictureListViewController.m */,
+				38B7D8B717F3922B009C0AEF /* PictureShowViewController.h */,
+				38B7D8B817F3922B009C0AEF /* PictureShowViewController.m */,
+				D032729C17FB5BCA00484963 /* PictureMapViewController.h */,
+				D032729D17FB5BCA00484963 /* PictureMapViewController.m */,
+				D03272A217FB7A7600484963 /* PicturePointAnnotation.h */,
+				D03272A317FB7A7600484963 /* PicturePointAnnotation.m */,
+				D058C85A18086E3E00C96527 /* GeoClient.h */,
+				D058C85B18086E3E00C96527 /* GeoClient.m */,
+				D0E7E4B0180A860900749268 /* Pictures.h */,
+				D0E7E4B1180A860900749268 /* Pictures.m */,
+				38E8037D17EA55D1007043A5 /* Supporting Files */,
+			);
+			path = MobilePhotoShare;
+			sourceTree = "<group>";
+		};
+		38E8037D17EA55D1007043A5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				38E8037E17EA55D1007043A5 /* MobilePhotoShare-Info.plist */,
+				38E8037F17EA55D1007043A5 /* InfoPlist.strings */,
+				38E8038217EA55D1007043A5 /* main.m */,
+				38E8038417EA55D1007043A5 /* MobilePhotoShare-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		38E8039B17EA55D1007043A5 /* MobilePhotoShareTests */ = {
+			isa = PBXGroup;
+			children = (
+				38E803A117EA55D1007043A5 /* MobilePhotoShareTests.m */,
+				38E8039C17EA55D1007043A5 /* Supporting Files */,
+			);
+			path = MobilePhotoShareTests;
+			sourceTree = "<group>";
+		};
+		38E8039C17EA55D1007043A5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				38E8039D17EA55D1007043A5 /* MobilePhotoShareTests-Info.plist */,
+				38E8039E17EA55D1007043A5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		38E8037217EA55D1007043A5 /* MobilePhotoShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38E803A517EA55D1007043A5 /* Build configuration list for PBXNativeTarget "MobilePhotoShare" */;
+			buildPhases = (
+				38E8036F17EA55D1007043A5 /* Sources */,
+				38E8037017EA55D1007043A5 /* Frameworks */,
+				38E8037117EA55D1007043A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MobilePhotoShare;
+			productName = MobilePhotoShare;
+			productReference = 38E8037317EA55D1007043A5 /* MobilePhotoShare.app */;
+			productType = "com.apple.product-type.application";
+		};
+		38E8039317EA55D1007043A5 /* MobilePhotoShareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38E803A817EA55D1007043A5 /* Build configuration list for PBXNativeTarget "MobilePhotoShareTests" */;
+			buildPhases = (
+				38E8039017EA55D1007043A5 /* Sources */,
+				38E8039117EA55D1007043A5 /* Frameworks */,
+				38E8039217EA55D1007043A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				38E8039A17EA55D1007043A5 /* PBXTargetDependency */,
+			);
+			name = MobilePhotoShareTests;
+			productName = MobilePhotoShareTests;
+			productReference = 38E8039417EA55D1007043A5 /* MobilePhotoShareTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		38E8036B17EA55D1007043A5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Amazon Web Services";
+				TargetAttributes = {
+					38E8037217EA55D1007043A5 = {
+						DevelopmentTeam = W3DRXD72QU;
+					};
+					38E8039317EA55D1007043A5 = {
+						TestTargetID = 38E8037217EA55D1007043A5;
+					};
+				};
+			};
+			buildConfigurationList = 38E8036E17EA55D1007043A5 /* Build configuration list for PBXProject "MobilePhotoShare" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 38E8036A17EA55D1007043A5;
+			productRefGroup = 38E8037417EA55D1007043A5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				38E8037217EA55D1007043A5 /* MobilePhotoShare */,
+				38E8039317EA55D1007043A5 /* MobilePhotoShareTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		38E8037117EA55D1007043A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38E8038F17EA55D1007043A5 /* Images.xcassets in Resources */,
+				38E8038117EA55D1007043A5 /* InfoPlist.strings in Resources */,
+				38E8038A17EA55D1007043A5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38E8039217EA55D1007043A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38E803A017EA55D1007043A5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		38E8036F17EA55D1007043A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D058C85C18086E3E00C96527 /* GeoClient.m in Sources */,
+				38E803B217EA5887007043A5 /* AmazonClientManager.m in Sources */,
+				38E803B317EA5887007043A5 /* AmazonKeyChainWrapper.m in Sources */,
+				38E8038D17EA55D1007043A5 /* ViewController.m in Sources */,
+				38E8038717EA55D1007043A5 /* AppDelegate.m in Sources */,
+				38E8038317EA55D1007043A5 /* main.m in Sources */,
+				D0E7E4B2180A860900749268 /* Pictures.m in Sources */,
+				38E803DC17ECB2F6007043A5 /* PictureListViewController.m in Sources */,
+				D032729E17FB5BCA00484963 /* PictureMapViewController.m in Sources */,
+				D03272A417FB7A7600484963 /* PicturePointAnnotation.m in Sources */,
+				38E803D317EBB11E007043A5 /* Constants.m in Sources */,
+				38E803D017EBA4F5007043A5 /* AddPictureViewController.m in Sources */,
+				D058C86218088A4400C96527 /* Favorites.m in Sources */,
+				38B7D8B917F3922B009C0AEF /* PictureShowViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38E8039017EA55D1007043A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38E803A217EA55D1007043A5 /* MobilePhotoShareTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		38E8039A17EA55D1007043A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 38E8037217EA55D1007043A5 /* MobilePhotoShare */;
+			targetProxy = 38E8039917EA55D1007043A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		38E8037F17EA55D1007043A5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38E8038017EA55D1007043A5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		38E8038817EA55D1007043A5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38E803C417EA8728007043A5 /* en */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		38E8039E17EA55D1007043A5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38E8039F17EA55D1007043A5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		38E803A317EA55D1007043A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		38E803A417EA55D1007043A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		38E803A617EA55D1007043A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../aws-ios-sdk-1.8.0\"",
+					"\"$(SRCROOT)/../../aws-ios-sdk-1.8.0/ThirdParty\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobilePhotoShare/MobilePhotoShare-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SOURCE_ROOT)/../TVMClient/**",
+				);
+				INFOPLIST_FILE = "MobilePhotoShare/MobilePhotoShare-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		38E803A717EA55D1007043A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../aws-ios-sdk-1.8.0\"",
+					"\"$(SRCROOT)/../../aws-ios-sdk-1.8.0/ThirdParty\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobilePhotoShare/MobilePhotoShare-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SOURCE_ROOT)/../TVMClient/**",
+				);
+				INFOPLIST_FILE = "MobilePhotoShare/MobilePhotoShare-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		38E803A917EA55D1007043A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MobilePhotoShare.app/MobilePhotoShare";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobilePhotoShare/MobilePhotoShare-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MobilePhotoShareTests/MobilePhotoShareTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		38E803AA17EA55D1007043A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MobilePhotoShare.app/MobilePhotoShare";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobilePhotoShare/MobilePhotoShare-Prefix.pch";
+				INFOPLIST_FILE = "MobilePhotoShareTests/MobilePhotoShareTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		38E8036E17EA55D1007043A5 /* Build configuration list for PBXProject "MobilePhotoShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38E803A317EA55D1007043A5 /* Debug */,
+				38E803A417EA55D1007043A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38E803A517EA55D1007043A5 /* Build configuration list for PBXNativeTarget "MobilePhotoShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38E803A617EA55D1007043A5 /* Debug */,
+				38E803A717EA55D1007043A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38E803A817EA55D1007043A5 /* Build configuration list for PBXNativeTarget "MobilePhotoShareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38E803A917EA55D1007043A5 /* Debug */,
+				38E803AA17EA55D1007043A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 38E8036B17EA55D1007043A5 /* Project object */;
+}

@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<project name="AWSTokenVendingMachine-CommandLineTools" basedir="." default="help">
+
+
+    <property name="AWS_ACCESS_KEY_ID"  value=""/>
+    <property name="AWS_SECRET_KEY"     value=""/>
+    <property name="AppName"            value="MyMobileAppName"/>
+
+
+    <!-- =========================================================================================== -->
+    <!-- Build Targets -->
+    <!-- =========================================================================================== -->
+    <property name="src.dir"            value="${basedir}/src"/>
+    <property name="classes.dir"        value="${basedir}/classes"/>
+    <property name="third-party.dir"    value="${basedir}/third-party"/>
+    <property name="lib.dir"            value="${basedir}/lib"/>
+    <property name="web.dir"            value="${basedir}/web"/>
+
+
+    <path id="classpath.refid">
+        <pathelement path="${classes.dir}"/>
+        <fileset dir="${third-party.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+
+    <target name="help">
+        <echo message="This ANT file provides  basic administration utilities for use with the token vending machine (TVM)."/>
+        <echo message=""/>
+        <echo message="To use this ANT file, edit the three property values at the top of the file. Enter your AWS_ACCESS_KEY_ID, "/>
+        <echo message="AWS_SECRET_KEY and AppName. The AppName must match the Application Name used during the TVM install."/>
+        <echo message=""/>
+        <echo message=""/>
+        <echo message="countUsers - Counts the registered users in the Users domain."/>
+        <echo message="   ant -f clt.xml countUsers"/>
+        <echo message=""/>
+        <echo message="countDevices - Counts the registered devices in the Devices domain."/>
+        <echo message="   ant -f clt.xml countDevices"/>
+        <echo message=""/>
+        <echo message="listUsers - Lists all the usernames in the Users domain."/>
+        <echo message="   ant -f clt.xml listUsers"/>
+        <echo message=""/>
+        <echo message="deleteUser - Removes a specific user from the Users domain."/>
+        <echo message="   ant -f clt.xml deleteUser"/>
+        <echo message=""/>
+        <echo message="describeUser - Describes the details of a user from the Users domain."/>
+        <echo message="   ant -f clt.xml describeUser"/>
+        <echo message=""/>
+    </target>
+
+    <target name="countUsers">
+        <java classname="com.amazonaws.tvm.identity.admin.CountUsers" classpathref="classpath.refid" fork="true" maxmemory="256M">
+            <sysproperty key="AWS_ACCESS_KEY_ID"    value="${AWS_ACCESS_KEY_ID}"/>
+            <sysproperty key="AWS_SECRET_KEY"       value="${AWS_SECRET_KEY}"/>
+            <sysproperty key="UserTable"            value="TokenVendingMachine_${AppName}_USERS"/>
+        </java>
+    </target>
+
+    <target name="countDevices">
+        <java classname="com.amazonaws.tvm.identity.admin.CountDevices" classpathref="classpath.refid" fork="true" maxmemory="256M">
+            <sysproperty key="AWS_ACCESS_KEY_ID"    value="${AWS_ACCESS_KEY_ID}"/>
+            <sysproperty key="AWS_SECRET_KEY"       value="${AWS_SECRET_KEY}"/>
+            <sysproperty key="DeviceTable"          value="TokenVendingMachine_${AppName}_DEVICES"/>
+        </java>
+    </target>
+
+    <target name="listUsers">
+        <java classname="com.amazonaws.tvm.identity.admin.ListUsers" classpathref="classpath.refid" fork="true" maxmemory="256M">
+            <sysproperty key="AWS_ACCESS_KEY_ID"    value="${AWS_ACCESS_KEY_ID}"/>
+            <sysproperty key="AWS_SECRET_KEY"       value="${AWS_SECRET_KEY}"/>
+            <sysproperty key="UserTable"            value="TokenVendingMachine_${AppName}_USERS"/>
+        </java>
+    </target>
+
+    <target name="deleteUser">
+        <input message="Name of User to be DELETED:" addproperty="username"/>
+        <java classname="com.amazonaws.tvm.identity.admin.DeleteUser" classpathref="classpath.refid" fork="true" maxmemory="256M">
+            <sysproperty key="AWS_ACCESS_KEY_ID"    value="${AWS_ACCESS_KEY_ID}"/>
+            <sysproperty key="AWS_SECRET_KEY"       value="${AWS_SECRET_KEY}"/>
+            <sysproperty key="UserTable"            value="TokenVendingMachine_${AppName}_USERS"/>
+            <arg line="${username}"/>
+        </java>
+    </target>
+
+    <target name="describeUser">
+        <input message="Username:" addproperty="username"/>
+        <java classname="com.amazonaws.tvm.identity.admin.DescribeUser" classpathref="classpath.refid" fork="true" maxmemory="256M">
+            <sysproperty key="AWS_ACCESS_KEY_ID"    value="${AWS_ACCESS_KEY_ID}"/>
+            <sysproperty key="AWS_SECRET_KEY"       value="${AWS_SECRET_KEY}"/>
+            <sysproperty key="UserTable"            value="TokenVendingMachine_${AppName}_USERS"/>
+            <arg line="${username}"/>
+        </java>
+    </target>
+</project>

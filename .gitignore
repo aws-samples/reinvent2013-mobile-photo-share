@@ -1,0 +1,24 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Xcode generated files #
+######################
+xcuserdata
+xcshareddata
+
+# Patched code #
+######################
+*.bak
+
+# Built assets #
+######################
+build
+*.framework

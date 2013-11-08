@@ -1,0 +1,7 @@
+{"Statement":
+    [
+        {"Effect":"Allow","Action":["s3:*", "sdb:*", "sqs:*", "sns:*", "dynamodb:*"],"Resource":"*"},
+        {"Effect":"Deny","Action":"dynamodb:*","Resource":["arn:aws:dynamodb:__REGION__:__ACCOUNT_ID__:table/__DEVICE_TABLE__"]},
+        {"Effect":"Deny","Action":"iam:*","Resource":"*"}
+    ]
+}

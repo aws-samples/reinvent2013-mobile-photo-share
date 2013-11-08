@@ -1,0 +1,10 @@
+
+AWS Elastic BeanStalk Configuration Settings
+============================================
+AWS_ACCESS_KEY_ID : The account to use to access your Amazon DynamoDB Tables for the TVM and Geo Locations.
+AWS_SECRET_KEY : The account to use to access your Amazon DynamoDB Tables for the TVM and Geo Locations.
+PARAM1 : The name of the Mobile App.
+PARAM2 : The Amazon DynamoDB endpoint to use for the TVM.
+PARAM3 : The Amazon DynamoDB table name used for Geo Locations of the Photos.
+PARAM4 : The region used for Amazon DynamoDB for the Geo Locations table.
+
