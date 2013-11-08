@@ -9,7 +9,12 @@ The following instructions detail how to get the iOS App sample running for **Mo
 
 Running the iOS App:
 
-1.  Open the **MobilePhotoShare/MobilePhotoShare.xcodeproj** project file in Xcode.
+1.  Open the **MobilePhotoShare/MobilePhotoShare.xcworkspace** project file in Xcode.
+2.  In the **TVMClient** project, Right-Click on the **Frameworks** group.
+    1.  In the Menu select Add Files to **TVMClient**
+    1.  Navigate to the location where you downloaded and expanded the AWS SDK for iOS.
+    1.  Select the following frameworks and click Add:
+        * AWSRuntime.framework
 1.  1.  In the Project Navigator, Right-Click on the **Frameworks** group.
     1.  In the Menu select Add Files to **MobilePhotoShare**
     1.  Navigate to the location where you downloaded and expanded the AWS SDK for iOS.
