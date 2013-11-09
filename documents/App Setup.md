@@ -11,12 +11,12 @@ Running the iOS App:
 
 1.  Open the **MobilePhotoShare/MobilePhotoShare.xcworkspace** project file in Xcode.
 2.  In the **TVMClient** project, Right-Click on the **Frameworks** group.
-    1.  In the Menu select Add Files to **TVMClient**
+    1.  In the Menu select **Add Files to "TVMClien"…**
     1.  Navigate to the location where you downloaded and expanded the AWS SDK for iOS.
     1.  Select the following frameworks and click Add:
         * AWSRuntime.framework
-1.  1.  In the Project Navigator, Right-Click on the **Frameworks** group.
-    1.  In the Menu select Add Files to **MobilePhotoShare**
+1.  1.  In the **MobilePhotoShare** project, Right-Click on the **Frameworks** group.
+    1.  In the Menu select **Add Files to "MobilePhotoShare"…**
     1.  Navigate to the location where you downloaded and expanded the AWS SDK for iOS.
     1.  Select the following frameworks and click Add:
         * AWSRuntime.framework
@@ -24,7 +24,7 @@ Running the iOS App:
         * AWSSecurityTokenService.framework
         * AWSS3.framework
         * AWSSNS.framework
-        * ThirdParty/FacebookSDK.framework
+        * FacebookSDK.framework (under the ThirdParty directory)
 1.  Update the MobilePhotoShare sample with the necessary configuration.  
 	1. Open the **Constants.h** file.
     1. Enter the name of *Amazon S3* Bucket you created for constant **BUCKET_NAME**.
