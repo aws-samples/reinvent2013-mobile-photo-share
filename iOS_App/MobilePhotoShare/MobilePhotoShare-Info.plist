@@ -29,7 +29,7 @@
 			<string>Facebook Login</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb555007734568280</string>
+				<string>fbFACEBOOK_APP_ID</string>
 			</array>
 		</dict>
 		<dict>
@@ -56,7 +56,7 @@
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>FacebookAppID</key>
-	<string>555007734568280</string>
+	<string>Facebook App Id</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>
